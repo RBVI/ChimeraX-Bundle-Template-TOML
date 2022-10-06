@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools", "ChimeraX-BundleBuilder"]
+build-backend = "chimerax.bundle_builder.cx_pep517"
+
+[project]
+# ChimeraX bundle names must start with "ChimeraX-"
+# to avoid clashes with package names in pypi.python.org.
+# When uploaded to the ChimeraX toolshed, the bundle
+# will be displayed without the ChimeraX- prefix.
+# To override this name, see the [chimerax] section
+# below.
+name = "ChimeraX-BasicExample"
+version = "0.1"
+license = { text = "Free for non-commercial use" }
+authors= [{name = "UCSF RBVI", email="chimerax@cgl.ucsf.edu"}]
+description = "Basic example for adding a command"
+dependencies = [
+	"ChimeraX-Core >=0.1"
+]
+dynamic = ["classifiers", "requires-python"]
+
+[project.readme]
+content-type = "text"
+text="""Basic example code for implementing ChimeraX bundle.
+
+Implements command "basic count" to report number of atoms and bonds."""
+	
+[project.urls]
+Home = "https://www.rbvi.ucsf.edu/chimerax/"
+
+# To use a dynamic version, add "version" to the project.dynamic
+# list, then remove project.version
+# [tool.setuptools.dynamic]
+# version = { attr = "src.__version__" }
+
+[chimerax]
+# Set this value to a string to give your module name a
+# different installed name than the project name. For
+# example, ChimeraX-AlignmentHdrs uses this option to
+# name its package "alignment_headers"
+module-name-override = "basic_example"
+min-session-version = 1
+max-session-version = 1
+categories = ["General"]
+classifiers = ["Development Status :: 2 - Pre-Alpha"]
+
+[chimerax.command.basic_example]
+category = "General"
+description = "Log number of atoms and bonds in models"
