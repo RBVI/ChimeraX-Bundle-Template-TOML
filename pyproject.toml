@@ -12,19 +12,17 @@ build-backend = "chimerax.bundle_builder.cx_pep517"
 name = "ChimeraX-BasicExample"
 version = "0.1"
 license = { text = "Free for non-commercial use" }
-authors= [{name = "UCSF RBVI", email="chimerax@cgl.ucsf.edu"}]
+authors = [{ name = "UCSF RBVI", email = "chimerax@cgl.ucsf.edu" }]
 description = "Basic example for adding a command"
-dependencies = [
-	"ChimeraX-Core >=0.1"
-]
+dependencies = ["ChimeraX-Core >=0.1"]
 dynamic = ["classifiers", "requires-python"]
 
 [project.readme]
 content-type = "text"
-text="""Basic example code for implementing ChimeraX bundle.
+text = """Basic example code for implementing ChimeraX bundle.
 
 Implements command "basic count" to report number of atoms and bonds."""
-	
+
 [project.urls]
 Home = "https://www.rbvi.ucsf.edu/chimerax/"
 
@@ -33,7 +31,7 @@ Home = "https://www.rbvi.ucsf.edu/chimerax/"
 # [tool.setuptools.dynamic]
 # version = { attr = "src.__version__" }
 
-[chimerax]
+[tool.chimerax]
 # Set this value to a string to give your module name a
 # different installed name than the project name. For
 # example, ChimeraX-AlignmentHdrs uses this option to
@@ -44,6 +42,6 @@ max-session-version = 1
 categories = ["General"]
 classifiers = ["Development Status :: 2 - Pre-Alpha"]
 
-[chimerax.command.basic_example]
+[tool.chimerax.command.basic_example]
 category = "General"
 description = "Log number of atoms and bonds in models"
