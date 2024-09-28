@@ -61,6 +61,9 @@ SRCS = $(PYSRCS) $(CSRCS)
 install:	pyproject.toml $(SRCS) generated_files
 	$(RUN) "devel install . exit true"
 
+install-editable:	pyproject.toml $(SRCS) generated_files
+	$(RUN) "devel install . editable true exit true"
+
 wheel:	pyproject.toml $(SRCS) generated_files
 	$(RUN) "devel build . exit true"
 
